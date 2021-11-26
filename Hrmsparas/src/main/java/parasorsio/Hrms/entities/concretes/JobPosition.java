@@ -1,11 +1,17 @@
 package parasorsio.Hrms.entities.concretes;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,4 +36,14 @@ public class JobPosition {
 	@Column(name = "position_description")
 	private String positionDescription;
 	
+	
+	@ManyToOne()
+	@JoinColumn(name ="employer_id")
+	private Employer employer;
+	
+	@ManyToMany()
+	@JoinColumn(name ="job_advert_id")
+	private JobAdvert jobAdvert;
+
+
 }

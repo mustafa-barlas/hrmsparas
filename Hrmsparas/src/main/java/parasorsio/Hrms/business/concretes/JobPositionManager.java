@@ -25,15 +25,9 @@ public class JobPositionManager implements JobPositionService {
 	}
 
 	@Override
-	public DataResult<List<JobPosition>> getAll() {
-
-		return new SuccessDataResult<List<JobPosition>>(this.jobPositionDao.findAll(), "tüm pozisyonlar getirildi");
-	}
-
-	@Override
-	public Result add(JobPosition jobPosition) {
-		this.jobPositionDao.save(jobPosition);
-		return new SuccessResult("pozisyon eklendi");
+	public Result add(JobPosition jonPosition) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -43,9 +37,64 @@ public class JobPositionManager implements JobPositionService {
 	}
 
 	@Override
-	public Result delete(JobPosition jonPosition) {
+	public Result delete(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
+	public DataResult<JobPosition> getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<List<JobPosition>> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<JobPosition> getAll(int pageNo, int pageSize) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<JobPosition> getBySorted() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<JobPosition> getByJobPositionName(String positionName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<JobPosition> getByJobPositionId(int positionId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<List<JobPosition>> getByJobPositionIdAndName(int positionId, String positionName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<List<JobPosition>> getByJobPositionNameContains(String positionName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<List<JobPosition>> getByJobPositionNameStartsWith(String positionName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }

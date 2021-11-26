@@ -26,15 +26,9 @@ public class JobSeekerManager implements jobSeekerService {
 	}
 
 	@Override
-	public DataResult<List<JobSeeker>> getAll() {
-
-		return new SuccessDataResult<List<JobSeeker>>(this.jobSeekerDao.findAll(), "tüm iş arayanlar getirildi");
-	}
-
-	@Override
 	public Result add(JobSeeker jobSeeker) {
-		this.jobSeekerDao.save(jobSeeker);
-		return new SuccessResult("iş arayan bilgileri eklendi");
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -44,9 +38,58 @@ public class JobSeekerManager implements jobSeekerService {
 	}
 
 	@Override
-	public Result delete(JobSeeker jobSeeker) {
+	public Result delete(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
+	public DataResult<JobSeeker> getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<List<JobSeeker>> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<JobSeeker> getAll(int pageNo, int pageSize) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<JobSeeker> getByJobSeekerNameAndJobSeekerSurname(String jobSeekerName, String jobSeekerSurname) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<JobSeeker> getByJobSeekerTc(String jobSeekerTc) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<JobSeeker> getByJobSeekerId(int jobSeekerId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<List<JobSeeker>> getByJobSeekerNameContains(String jobSeekerName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<List<JobSeeker>> getByJobSeekerNameStartsWith(String jobSeekerName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }

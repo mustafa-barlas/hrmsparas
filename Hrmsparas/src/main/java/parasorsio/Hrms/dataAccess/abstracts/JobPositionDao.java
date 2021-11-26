@@ -8,10 +8,13 @@ import parasorsio.Hrms.entities.concretes.JobPosition;
 
 public interface JobPositionDao extends JpaRepository<JobPosition, Integer> {
 
-	List<JobPosition> getfindpositionId(int id);
-	List<JobPosition> getfindname(String name);
+	JobPosition getByJobPositionName(String positionName);
 	
+	JobPosition getByJobPositionId(int positionId);
 	
-	List<JobPosition> getAllpositionId(int id);
-	List<JobPosition> getAllname(String name);
+	List<JobPosition> getByJobPositionIdAndName(int positionId,String positionName);
+	
+	List<JobPosition> getByJobPositionNameContains(String positionName);
+
+	List<JobPosition> getByJobPositionNameStartsWith(String positionName);
 }

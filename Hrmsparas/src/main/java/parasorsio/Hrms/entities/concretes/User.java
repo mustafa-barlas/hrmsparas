@@ -1,27 +1,53 @@
 package parasorsio.Hrms.entities.concretes;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Entity
 @Table(name = "users")
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
 	
 	@Id
-	@GeneratedValue
-	@Column(name = "password")
-	private String password;
-    
-	@Column(name = "amail")
-	private String email;
+	@GeneratedValue(strategy =GenerationType.IDENTITY)
+	@Column(name = "user_id")
+	private int userId;
 	
-	@Column(name = "validation")
-	private boolean validation;
+	@Column(name = "user_email")
+	private String userEmail;
+	
+	@Column(name = "user_password")
+	private String userPassword;
+	
+	@Column(name = "user_status")
+	private boolean userStatus;
+	
+	@Column(name = "user_validation")
+	private boolean userValidation;
+	
+	@ManyToOne()
+	@JoinColumn(name = "employee_id")
+	private Employee employee;
+	
+	@ManyToOne()
+	@JoinColumn(name ="employer_id")
+	private Employer employer;
+	
+	@ManyToOne()
+	@JoinColumn(name ="job_sekker_id")
+	private JobSeeker jobSeeker;
 }

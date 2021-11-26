@@ -8,12 +8,20 @@ import parasorsio.Hrms.entities.concretes.Employer;
 
 public interface EmployerDao extends JpaRepository<Employer, Integer> {
 
+	Employer getByEmployerName(String employerName);
 	
-	List<Employer> getfindcompanyName(String name);
-	List<Employer> getfindemployerId(int id);
+	Employer getByEmployerId(int employerId);
+	
+	List<Employer> getByEmployerPostigns(String employerPostigns);
+	
+	List<Employer> getByEmployerPosition(String employerPosition);
+	
+	List<Employer> getByEmployerNameContains(String employerName);
+	
+	List<Employer> getByEmployerNameStartsWith(String employerName);
 	
 	
-	List<Employer> getAllcompanyName(String name);
-	List<Employer> getAllemployerId(int id);
+	
+	
 	
 }
