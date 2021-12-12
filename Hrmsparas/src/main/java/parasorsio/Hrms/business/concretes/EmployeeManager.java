@@ -31,24 +31,24 @@ public class EmployeeManager implements EmployeeService {
 	@Override
 	public Result add(Employee employee) {
 		this.employeeDao.save(employee);
-		return new SuccessResult(" add to employee");
+		return new SuccessResult();
 	}
 
 	@Override
 	public Result update(Employee employee) {
 		this.employeeDao.save(employee);
-		return new SuccessResult(" update to employee");
+		return new SuccessResult();
 	}
 
 	@Override
 	public Result delete(int id) {
 		this.employeeDao.deleteById(id);
-		return new SuccessResult(" deleted to employee");
+		return new SuccessResult();
 	}
 
 	@Override
 	public DataResult<Employee> getById(int id) {
-		return new SuccessDataResult<Employee>(this.employeeDao.getById(id));
+		return new SuccessDataResult<Employee>(this.employeeDao.getByEmployeeId(id));
 	}
 
 	@Override
@@ -74,17 +74,6 @@ public class EmployeeManager implements EmployeeService {
 	}
 
 	@Override
-	public DataResult<Employee> getByEmployeeId(int employeeId) {
-		return new SuccessDataResult<Employee>(this.employeeDao.getByEmployeeId(employeeId));
-	}
-
-	@Override
-	public DataResult<List<Employee>> getByEmployeeIdAndEmployeeName(int employeeId, String employyeName) {
-		return new SuccessDataResult<List<Employee>>(
-				this.employeeDao.getByEmployeeIdAndEmployeeName(employeeId, employyeName));
-	}
-
-	@Override
 	public DataResult<List<Employee>> getByEmployeeNameContains(String employeeName) {
 		return new SuccessDataResult<List<Employee>>(this.employeeDao.getByEmployeeNameContains(employeeName));
 	}
@@ -92,6 +81,12 @@ public class EmployeeManager implements EmployeeService {
 	@Override
 	public DataResult<List<Employee>> getByEmployeeNameStartsWith(String employeeName) {
 		return new SuccessDataResult<List<Employee>>(this.employeeDao.getByEmployeeNameStartsWith(employeeName));
+	}
+
+	@Override
+	public DataResult<Employee> getByEmployeeIdAndEmployeeName(int employeeId, String employyeName) {
+
+		return new SuccessDataResult<Employee>(this.employeeDao.getByEmployeeIdAndEmployeeName(employeeId, employyeName));
 	}
 
 }

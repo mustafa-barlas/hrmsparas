@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -18,7 +17,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "jobadverts")
+@Table(name = "job_adverts")
 @AllArgsConstructor
 @NoArgsConstructor
 public class JobAdvert {
@@ -34,6 +33,9 @@ public class JobAdvert {
 	@Column(name = "job_advert_description")
 	private String jobAdvertDescription;
 
+	@Column(name = "job_advert_city")
+	private String jobAdvertCity;
+
 	@Column(name = "job_advert_publish_date")
 	private LocalDate jobAdvertPublishDate;
 
@@ -43,24 +45,28 @@ public class JobAdvert {
 	@Column(name = "job_advert_number_of_application")
 	private String jobAdvertNumberOfApplication;
 
+	@Column(name = "job_advert_max_salary")
+	private String jobAdvertMaxSalary;
+
+	@Column(name = "job_advert_min_salary")
+	private String jobAdvertMinSalary;
+
+	@Column(name = "job_advert_open_position")
+	private String jobAdvertOpenPosition;
+
 	@Column(name = "job_advert_viewing")
 	private String jobAdvertViewing;
-	
-	
-	
+
 	@ManyToOne()
-	@JoinColumn(name = "category_id")
-	private Category category;
-	
-	@ManyToOne()
-	@JoinColumn(name ="employer_id")
+	@JoinColumn(name = "employer_id")
 	private Employer employer;
-	
-	@ManyToMany()
-	@JoinColumn(name ="position_id")
+
+	@ManyToOne()
+	@JoinColumn(name = "position_id")
 	private JobPosition jobPosition;
-	
-	
-	
-	
+
+	@ManyToOne()
+	@JoinColumn(name = "city_id")
+	private City city;
+
 }

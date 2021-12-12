@@ -1,14 +1,16 @@
 package parasorsio.Hrms.entities.concretes;
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -37,13 +39,11 @@ public class JobPosition {
 	private String positionDescription;
 	
 	
-	@ManyToOne()
-	@JoinColumn(name ="employer_id")
-	private Employer employer;
-	
-	@ManyToMany()
-	@JoinColumn(name ="job_advert_id")
-	private JobAdvert jobAdvert;
+	@OneToMany(mappedBy="jobPosition")
+	private List<JobAdvert>  jobAdverts;
 
+	@ManyToOne()
+	@JoinColumn(name = "employer_id")
+	private Employer employer;
 
 }

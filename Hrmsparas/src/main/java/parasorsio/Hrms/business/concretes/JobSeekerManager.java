@@ -3,9 +3,12 @@ package parasorsio.Hrms.business.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import parasorsio.Hrms.business.abstracts.jobSeekerService;
+import parasorsio.Hrms.business.abstracts.JobSeekerService;
 import parasorsio.Hrms.core.utilities.Result.DataResult;
 import parasorsio.Hrms.core.utilities.Result.Result;
 import parasorsio.Hrms.core.utilities.Result.SuccessDataResult;
@@ -14,7 +17,7 @@ import parasorsio.Hrms.dataAccess.abstracts.JobSeekerDao;
 import parasorsio.Hrms.entities.concretes.JobSeeker;
 
 @Service
-public class JobSeekerManager implements jobSeekerService {
+public class JobSeekerManager implements JobSeekerService {
 
 	private JobSeekerDao jobSeekerDao;
 
@@ -27,69 +30,66 @@ public class JobSeekerManager implements jobSeekerService {
 
 	@Override
 	public Result add(JobSeeker jobSeeker) {
-		// TODO Auto-generated method stub
-		return null;
+		this.jobSeekerDao.save(jobSeeker);
+		return new SuccessResult();
 	}
 
 	@Override
 	public Result update(JobSeeker jobSeeker) {
-		// TODO Auto-generated method stub
-		return null;
+		this.jobSeekerDao.save(jobSeeker);
+		return new SuccessResult();
 	}
 
 	@Override
 	public Result delete(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		this.jobSeekerDao.deleteById(id);
+		return new SuccessResult();
 	}
 
 	@Override
-	public DataResult<JobSeeker> getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public DataResult<List<JobSeeker>> getByJobSeekerNameAndJobSeekerSurname(String jobSeekerName,
+			String jobSeekerSurname) {
+
+		return new SuccessDataResult<List<JobSeeker>>(
+				this.jobSeekerDao.getByJobSeekerNameAndJobSeekerSurname(jobSeekerName, jobSeekerSurname));
 	}
 
 	@Override
 	public DataResult<List<JobSeeker>> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return new SuccessDataResult<List<JobSeeker>>(this.jobSeekerDao.findAll());
 	}
 
 	@Override
-	public DataResult<JobSeeker> getAll(int pageNo, int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
+	public DataResult<List<JobSeeker>> getAll(int pageNo, int pageSize) {
+		Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+
+		return new SuccessDataResult<List<JobSeeker>>(this.jobSeekerDao.findAll(pageable).getContent());
 	}
 
 	@Override
-	public DataResult<JobSeeker> getByJobSeekerNameAndJobSeekerSurname(String jobSeekerName, String jobSeekerSurname) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public DataResult<List<JobSeeker>> getAllSorted() {
+		Sort sort = Sort.by(Sort.Direction.ASC, "jobSeekerName");
 
-	@Override
-	public DataResult<JobSeeker> getByJobSeekerTc(String jobSeekerTc) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public DataResult<JobSeeker> getByJobSeekerId(int jobSeekerId) {
-		// TODO Auto-generated method stub
-		return null;
+		return new SuccessDataResult<List<JobSeeker>>(this.jobSeekerDao.findAll(sort));
 	}
 
 	@Override
 	public DataResult<List<JobSeeker>> getByJobSeekerNameContains(String jobSeekerName) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return new SuccessDataResult<List<JobSeeker>>(this.jobSeekerDao.getByJobSeekerNameContains(jobSeekerName));
 	}
 
 	@Override
 	public DataResult<List<JobSeeker>> getByJobSeekerNameStartsWith(String jobSeekerName) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return new SuccessDataResult<List<JobSeeker>>(this.jobSeekerDao.getByJobSeekerNameStartsWith(jobSeekerName));
 	}
 
-	
+	@Override
+	public DataResult<JobSeeker> getById(int id) {
+
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getByJobSeekerId(id));
+	}
+
 }

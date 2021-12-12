@@ -8,30 +8,26 @@ import parasorsio.Hrms.entities.concretes.Employee;
 
 public interface EmployeeService {
 
-	
-	
 	Result add(Employee employee);
-	
+
 	Result update(Employee employee);
-	
+
 	Result delete(int id);
-	
-	DataResult<Employee> getById(int id);
-	
-	DataResult<List<Employee>> getAll();
-		
-	DataResult<List<Employee>> getAll(int pageNo,int PageSize);
-	
-	DataResult<List<Employee>> getAllSorted();
-	
+
 	DataResult<Employee> getByEmployeeName(String employeeName);
-	
-	DataResult<Employee> getByEmployeeId(int employeeId);
-	
-	DataResult<List<Employee>> getByEmployeeIdAndEmployeeName(int employeeId,String employyeName);
-	
+
+	DataResult<Employee> getById(int id);
+
+	DataResult<Employee> getByEmployeeIdAndEmployeeName(int employeeId, String employyeName);
+
+	DataResult<List<Employee>> getAll();
+
+	DataResult<List<Employee>> getAll(int pageNo, int PageSize);
+
+	DataResult<List<Employee>> getAllSorted();
+
 	DataResult<List<Employee>> getByEmployeeNameContains(String employeeName);
 
 	DataResult<List<Employee>> getByEmployeeNameStartsWith(String employeeName);
-	
+
 }

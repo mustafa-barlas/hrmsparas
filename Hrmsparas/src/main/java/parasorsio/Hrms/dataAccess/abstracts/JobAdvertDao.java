@@ -9,13 +9,9 @@ import parasorsio.Hrms.entities.concretes.JobAdvert;
 
 public interface JobAdvertDao extends JpaRepository<JobAdvert, Integer> {
 
+	JobAdvert getById(int id);
+
 	JobAdvert getByJobAdvertName(String jobAdvertName);
-
-	JobAdvert getByJobAdvertNameAndCategory_CategoryId(String jobAdvertName, int categoryId);
-
-	List<JobAdvert> getByCategory_CategoryIdIn(List<Integer> category);
-
-	List<JobAdvert> getByJobPositionIdIn(List<Integer> positions);
 
 	List<JobAdvert> getByJobAdvertNameContains(String jobAdvertName);
 
@@ -23,7 +19,7 @@ public interface JobAdvertDao extends JpaRepository<JobAdvert, Integer> {
 
 	List<JobAdvert> getByJobAdvertAdvertiserCompany(String jobAdvertAdvertiserCompany);
 
-	@Query("From JobAdvert where jobAdvertName=:jobAdvertName and category.categoryId=:categoryId")
-	List<JobAdvert> getByNameAndCategory(String jobAdvertName, int categoryId);
+	@Query("From JobAdvert where jobAdvertName=:jobAdvertName and jobAdvertDescription=:jobAdvertDescription")
+	List<JobAdvert> getByNameAndDescription(String jobAdvertName, String jobAdvertDescription);
 
 }

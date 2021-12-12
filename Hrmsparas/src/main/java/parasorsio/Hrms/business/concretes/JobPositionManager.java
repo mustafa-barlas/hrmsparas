@@ -3,6 +3,9 @@ package parasorsio.Hrms.business.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import parasorsio.Hrms.business.abstracts.JobPositionService;
@@ -25,76 +28,66 @@ public class JobPositionManager implements JobPositionService {
 	}
 
 	@Override
-	public Result add(JobPosition jonPosition) {
-		// TODO Auto-generated method stub
-		return null;
+	public Result add(JobPosition jobPosition) {
+		this.jobPositionDao.save(jobPosition);
+		return new SuccessResult();
 	}
 
 	@Override
-	public Result update(JobPosition jonPosition) {
-		// TODO Auto-generated method stub
-		return null;
+	public Result update(JobPosition jobPosition) {
+		this.jobPositionDao.save(jobPosition);
+		return new SuccessResult();
 	}
 
 	@Override
 	public Result delete(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		this.jobPositionDao.deleteById(id);
+		return new SuccessResult();
 	}
 
 	@Override
 	public DataResult<JobPosition> getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public DataResult<List<JobPosition>> getAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		return new SuccessDataResult<JobPosition>(this.jobPositionDao.getById(id));
 
-	@Override
-	public DataResult<JobPosition> getAll(int pageNo, int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public DataResult<JobPosition> getBySorted() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
 	public DataResult<JobPosition> getByJobPositionName(String positionName) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return new SuccessDataResult<JobPosition>(this.jobPositionDao.getByJobPositionName(positionName));
 	}
 
 	@Override
-	public DataResult<JobPosition> getByJobPositionId(int positionId) {
-		// TODO Auto-generated method stub
-		return null;
+	public DataResult<List<JobPosition>> getAll(int pageNo, int pageSize) {
+		Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+
+		return new SuccessDataResult<List<JobPosition>>(this.jobPositionDao.findAll(pageable).getContent());
 	}
 
 	@Override
-	public DataResult<List<JobPosition>> getByJobPositionIdAndName(int positionId, String positionName) {
-		// TODO Auto-generated method stub
-		return null;
+	public DataResult<List<JobPosition>> getAllSorted() {
+		Sort sort = Sort.by(Sort.Direction.ASC, "positionName");
+
+		return new SuccessDataResult<List<JobPosition>>(this.jobPositionDao.findAll(sort));
+	}
+
+	@Override
+	public DataResult<List<JobPosition>> getAll() {
+
+		return new SuccessDataResult<List<JobPosition>>(this.jobPositionDao.findAll());
 	}
 
 	@Override
 	public DataResult<List<JobPosition>> getByJobPositionNameContains(String positionName) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return new SuccessDataResult<List<JobPosition>>(this.jobPositionDao.getByJobPositionNameContains(positionName));
 	}
 
 	@Override
 	public DataResult<List<JobPosition>> getByJobPositionNameStartsWith(String positionName) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return new SuccessDataResult<List<JobPosition>>(this.jobPositionDao.getByJobPositionNameStartsWith(positionName));
 	}
 
-	
 }

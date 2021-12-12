@@ -15,20 +15,21 @@ import parasorsio.Hrms.core.utilities.Result.Result;
 import parasorsio.Hrms.entities.concretes.Employer;
 
 @RestController
-@RequestMapping("/api/employer_controllers")
+@RequestMapping("/api/employers")
 public class EmployerController {
 
 	private EmployerService employerService;
-	
+
 	@Autowired
 	public EmployerController(EmployerService employerService) {
 		super();
-		this.employerService=employerService;
-		
+		this.employerService = employerService;
+
 	}
+
 	@GetMapping("/getAll")
 	public DataResult<List<Employer>> getAll() {
-		
+
 		return this.employerService.getAll();
 	}
 
@@ -36,5 +37,5 @@ public class EmployerController {
 	public Result add(@RequestBody Employer employer) {
 		return this.employerService.add(employer);
 	}
-	
+
 }

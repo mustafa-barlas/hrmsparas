@@ -6,8 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -19,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class User  {
 
 	
 	@Id
@@ -39,15 +37,5 @@ public class User {
 	@Column(name = "user_validation")
 	private boolean userValidation;
 	
-	@ManyToOne()
-	@JoinColumn(name = "employee_id")
-	private Employee employee;
 	
-	@ManyToOne()
-	@JoinColumn(name ="employer_id")
-	private Employer employer;
-	
-	@ManyToOne()
-	@JoinColumn(name ="job_sekker_id")
-	private JobSeeker jobSeeker;
 }

@@ -24,30 +24,31 @@ public class EmployerManager implements EmployerService {
 	@Autowired
 	public EmployerManager(EmployerDao employerDao) {
 		super();
+		this.employerDao = employerDao;
 
 	}
 
 	@Override
 	public Result add(Employer employer) {
 		this.employerDao.save(employer);
-		return new SuccessResult(" saved to employer");
+		return new SuccessResult();
 	}
 
 	@Override
 	public Result update(Employer employer) {
 		this.employerDao.save(employer);
-		return new SuccessResult(" update to employer");
+		return new SuccessResult();
 	}
 
 	@Override
 	public Result delete(int id) {
 		this.employerDao.deleteById(id);
-		return new SuccessResult(" deleted to employer");
+		return new SuccessResult();
 	}
 
 	@Override
 	public DataResult<Employer> getById(int id) {
-		return new SuccessDataResult<Employer>(this.employerDao.getById(id));
+		return new SuccessDataResult<Employer>(this.employerDao.getByEmployerId(id));
 	}
 
 	@Override
@@ -63,18 +64,13 @@ public class EmployerManager implements EmployerService {
 
 	@Override
 	public DataResult<List<Employer>> getAllSorted() {
-		Sort sort = Sort.by(Sort.Direction.ASC, "employer");
+		Sort sort = Sort.by(Sort.Direction.ASC, "employerName");
 		return new SuccessDataResult<List<Employer>>(this.employerDao.findAll(sort));
 	}
 
 	@Override
 	public DataResult<Employer> getByEmployerName(String employerName) {
 		return new SuccessDataResult<Employer>(this.employerDao.getByEmployerName(employerName));
-	}
-
-	@Override
-	public DataResult<Employer> getByEmployerId(int employerId) {
-		return new SuccessDataResult<Employer>(this.employerDao.getByEmployerId(employerId));
 	}
 
 	@Override

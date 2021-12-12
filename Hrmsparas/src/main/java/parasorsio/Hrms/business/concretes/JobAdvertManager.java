@@ -30,35 +30,35 @@ public class JobAdvertManager implements JobAdvertService {
 	@Override
 	public Result add(JobAdvert jobAdvert) {
 		this.jobAdvertDao.save(jobAdvert);
-		return new SuccessResult(" add to Job advert ");
-	} 
+		return new SuccessResult();
+	}
 
 	@Override
 	public Result update(JobAdvert jobAdvert) {
 		this.jobAdvertDao.save(jobAdvert);
-		return new SuccessResult(" update to job advert ");
+		return new SuccessResult();
 	}
 
 	@Override
 	public Result delete(int id) {
 		this.jobAdvertDao.deleteById(id);
-		return new SuccessResult("deleted to job advert ");
-		
+		return new SuccessResult();
+
 	}
 
 	@Override
 	public DataResult<JobAdvert> getById(int id) {
-		return new SuccessDataResult<JobAdvert>(this.jobAdvertDao.getById(id), "job advert brought");
+		return new SuccessDataResult<JobAdvert>(this.jobAdvertDao.getById(id));
 	}
 
 	@Override
 	public DataResult<List<JobAdvert>> getAll() {
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findAll(), "all job advert brought");
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findAll());
 	}
 
 	@Override
 	public DataResult<List<JobAdvert>> getAll(int pageNo, int pageSize) {
-		Pageable pageable = PageRequest.of(pageNo-1, pageSize);
+		Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findAll(pageable).getContent());
 	}
 
@@ -70,44 +70,26 @@ public class JobAdvertManager implements JobAdvertService {
 
 	@Override
 	public DataResult<JobAdvert> getByJobAdvertName(String jobAdvertName) {
-		return new SuccessDataResult<JobAdvert>(this.jobAdvertDao.getByJobAdvertName(jobAdvertName), "job advert listed");
-		
-	}
+		return new SuccessDataResult<JobAdvert>(this.jobAdvertDao.getByJobAdvertName(jobAdvertName));
 
-	@Override
-	public DataResult<JobAdvert> getByJobAdvertNameOrCategoryId(String jobAdvertName, int categoryId) {
-		return new SuccessDataResult<JobAdvert>(this.jobAdvertDao.getByJobAdvertNameAndCategory_CategoryId(jobAdvertName, categoryId));
-	}
-
-	@Override
-	public DataResult<List<JobAdvert>> getByCategoryIdIn(List<Integer> categories) {
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getByCategory_CategoryIdIn(categories));
-		
-	}
-
-	@Override
-	public DataResult<List<JobAdvert>> getByJobPositionIdIn(List<Integer> positions) {
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getByJobPositionIdIn(positions));
-		
-	}
-
-	@Override
-	public DataResult<List<JobAdvert>> getByJobAdvertNameContains(String jobAdvertName) {
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getByJobAdvertNameContains(jobAdvertName));
-		
 	}
 
 	@Override
 	public DataResult<List<JobAdvert>> getByJobAdvertNameStartsWith(String jobAdvertName) {
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getByJobAdvertNameStartsWith(jobAdvertName));
-		
+
 	}
 
 	@Override
 	public DataResult<List<JobAdvert>> getByJobAdvertAdvertiserCompany(String jobAdvertAdvertiserCompany) {
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getByJobAdvertAdvertiserCompany(jobAdvertAdvertiserCompany));
-		
+		return new SuccessDataResult<List<JobAdvert>>(
+				this.jobAdvertDao.getByJobAdvertAdvertiserCompany(jobAdvertAdvertiserCompany));
+
 	}
 
-	
+	@Override
+	public DataResult<List<JobAdvert>> getByJobAdvertNameContains(String jobAdvertName) {
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getByJobAdvertNameContains(jobAdvertName));
+	}
+
 }

@@ -16,7 +16,7 @@ import parasorsio.Hrms.core.utilities.Result.Result;
 import parasorsio.Hrms.entities.concretes.JobAdvert;
 
 @RestController
-@RequestMapping("/api/job_advert_controllers/")
+@RequestMapping("/api/jobadverts/")
 public class JobAdvertController {
 
 	private JobAdvertService jobAdvertService;
@@ -43,24 +43,20 @@ public class JobAdvertController {
 		return this.jobAdvertService.getByJobAdvertName(jobAdvertName);
 	}
 
-	@GetMapping("getByJobAdvertNameOrCategory")
-	public DataResult<JobAdvert>
-	getByJobAdvertNameOrCategory(@RequestParam("jobAdvertName") String jobAdvertName,@RequestParam("categoryId") int categoryId) {
-		return this.jobAdvertService.getByJobAdvertNameOrCategoryId(jobAdvertName, categoryId);
-	}
-
 	@GetMapping("getByJobAdvertNameContains")
-	public DataResult<List<JobAdvert>> getByJobAdvertNameContains(@RequestParam String jobAdvertName){
+	public DataResult<List<JobAdvert>> getByJobAdvertNameContains(@RequestParam String jobAdvertName) {
 		return this.jobAdvertService.getByJobAdvertNameContains(jobAdvertName);
 	}
+
 	@GetMapping("getAllByPage")
-	public DataResult<List<JobAdvert>> getAll(int pageNo,int pageSize){
-		
+	public DataResult<List<JobAdvert>> getAll(int pageNo, int pageSize) {
+
 		return this.jobAdvertService.getAll(pageNo, pageSize);
 	}
+
 	@GetMapping("getAllASC")
-	public DataResult<List<JobAdvert>> getAllSorted(){
-		
+	public DataResult<List<JobAdvert>> getAllSorted() {
+
 		return this.jobAdvertService.getAllSorted();
 	}
 }

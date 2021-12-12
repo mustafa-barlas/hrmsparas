@@ -15,7 +15,7 @@ import parasorsio.Hrms.core.utilities.Result.Result;
 import parasorsio.Hrms.entities.concretes.Employee;
 
 @RestController
-@RequestMapping("/api/employee_controllers")
+@RequestMapping("/api/employees")
 public class EmployeeController {
 	
 	private EmployeeService employeeService;

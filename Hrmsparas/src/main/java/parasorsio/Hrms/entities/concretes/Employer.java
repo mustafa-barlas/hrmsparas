@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,33 +25,29 @@ public class Employer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "employer_id")
 	private int employerId;
-	
+
 	@Column(name = "employer_phone_number")
 	private String employerPhoneNumber;
-	
+
 	@Column(name = "employer_name")
 	private String employerName;
-	
+
 	@Column(name = "employer_website")
 	private String employerWebsite;
-	
-	@Column(name ="employer_postings")
+
+	@Column(name = "employer_postings")
 	private String employerPosings;
-	
-	@Column(name ="employer_position")
-	private String employerPosition;
-	
-	@Column(name ="employer_explanation")
+
+	// @Column(name = "employer_position")
+	// private String employerPosition;
+
+	@Column(name = "employer_explanation")
 	private String employerExplanation;
-	
-	
-	@OneToMany(mappedBy ="employer")
+
+	@OneToMany(mappedBy = "employer")
 	private List<JobAdvert> jobAdverts;
-	
-	@OneToMany(mappedBy ="employer")
+
+	@OneToMany(mappedBy = "employer")
 	private List<JobPosition> jobPosition;
-	
-	@OneToMany(mappedBy ="employer")
-	private List<User> user;
-	
+
 }

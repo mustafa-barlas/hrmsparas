@@ -8,29 +8,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import parasorsio.Hrms.business.abstracts.jobSeekerService;
+import parasorsio.Hrms.business.abstracts.JobSeekerService;
 import parasorsio.Hrms.core.utilities.Result.DataResult;
 import parasorsio.Hrms.core.utilities.Result.Result;
 import parasorsio.Hrms.entities.concretes.JobSeeker;
 
 @RestController
-@RequestMapping("/api/job_seeker_controller")
+@RequestMapping("/api/jobseekers/")
 public class JobSeekerController {
 
-	private jobSeekerService jobSeekerService;
-	
-	public JobSeekerController(jobSeekerService jobSeekerService) {
+	private JobSeekerService JobSeekerService;
+
+	public JobSeekerController(JobSeekerService JobSeekerService) {
 		super();
-		this.jobSeekerService=jobSeekerService;
+		this.JobSeekerService = JobSeekerService;
 	}
-	
-	@GetMapping("/getAll")
-	public DataResult<List<JobSeeker>> getAll(){
-		 return this.jobSeekerService.getAll();
+
+	@GetMapping("getAll")
+	public DataResult<List<JobSeeker>> getAll() {
+		return this.JobSeekerService.getAll();
 	}
-	
-	@PostMapping("/add")
+
+	@PostMapping("add")
 	public Result add(@RequestBody JobSeeker jobSeeker) {
-		return this.jobSeekerService.add(jobSeeker);
+		return this.JobSeekerService.add(jobSeeker);
 	}
 }

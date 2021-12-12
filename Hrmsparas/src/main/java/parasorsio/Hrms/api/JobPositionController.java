@@ -15,7 +15,7 @@ import parasorsio.Hrms.core.utilities.Result.Result;
 import parasorsio.Hrms.entities.concretes.JobPosition;
 
 @RestController
-@RequestMapping("/api/job_position_controller")
+@RequestMapping("/api/jobpositions/")
 public class JobPositionController {
 
 	private JobPositionService jobPositionService;
@@ -27,13 +27,13 @@ public class JobPositionController {
 
 	}
 
-	@GetMapping("/getAll")
+	@GetMapping("getAll")
 	public DataResult<List<JobPosition>> getAll() {
 
 		return this.jobPositionService.getAll();
 	}
 
-	@PostMapping("/add")
+	@PostMapping("add")
 	public Result add(@RequestBody JobPosition jobPosition) {
 		return this.jobPositionService.add(jobPosition);
 	}
