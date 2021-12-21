@@ -2,8 +2,8 @@ package parasorsio.Hrms.business.abstracts;
 
 import java.util.List;
 
-import parasorsio.Hrms.core.utilities.Result.DataResult;
-import parasorsio.Hrms.core.utilities.Result.Result;
+import parasorsio.Hrms.core.utilities.result.DataResult;
+import parasorsio.Hrms.core.utilities.result.Result;
 import parasorsio.Hrms.entities.concretes.ForeignLanguage;
 
 public interface ForeignLanguageService {

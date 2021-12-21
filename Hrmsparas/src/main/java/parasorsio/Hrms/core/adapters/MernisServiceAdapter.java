@@ -1,4 +1,4 @@
-package parasorsio.Hrms.core.utilities.adapters;
+package parasorsio.Hrms.core.adapters;
 
 import org.springframework.stereotype.Service;
 

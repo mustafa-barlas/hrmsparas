@@ -15,6 +15,20 @@ public interface JobSeekerDao extends JpaRepository<JobSeeker, Integer> {
 
 	JobSeeker getByJobSeekerSurname(String jobSeekerSurname);
 
+	JobSeeker getByCityId(int cityId);
+
+	JobSeeker getByCoverLetterId(int coverLetterId);
+
+	JobSeeker getByEducation(int educationInformationId);
+
+	JobSeeker getByLanguageId(int foreignLanguageId);
+
+	JobSeeker getBySkillId(int skillId);
+
+	JobSeeker getBySocialMediaId(int socialMediaId);
+
+	JobSeeker getByWorkExperience(int workExperienceId);
+
 	List<JobSeeker> getByJobSeekerNameContains(String jobSeekerName);
 
 	List<JobSeeker> getByJobSeekerNameStartsWith(String jobSeekerName);

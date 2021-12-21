@@ -9,10 +9,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import parasorsio.Hrms.business.abstracts.JobSeekerService;
-import parasorsio.Hrms.core.utilities.Result.DataResult;
-import parasorsio.Hrms.core.utilities.Result.Result;
-import parasorsio.Hrms.core.utilities.Result.SuccessDataResult;
-import parasorsio.Hrms.core.utilities.Result.SuccessResult;
+import parasorsio.Hrms.core.utilities.result.DataResult;
+import parasorsio.Hrms.core.utilities.result.Result;
+import parasorsio.Hrms.core.utilities.result.SuccessDataResult;
+import parasorsio.Hrms.core.utilities.result.SuccessResult;
 import parasorsio.Hrms.dataAccess.abstracts.JobSeekerDao;
 import parasorsio.Hrms.entities.concretes.JobSeeker;
 
@@ -90,6 +90,48 @@ public class JobSeekerManager implements JobSeekerService {
 	public DataResult<JobSeeker> getById(int id) {
 
 		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getByJobSeekerId(id));
+	}
+
+	@Override
+	public DataResult<JobSeeker> getByCityId(int cityId) {
+
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getByCityId(cityId));
+	}
+
+	@Override
+	public DataResult<JobSeeker> getByCoverLetterId(int coverLetterId) {
+
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getByCoverLetterId(coverLetterId));
+	}
+
+	@Override
+	public DataResult<JobSeeker> getByEducationId(int educationInformationId) {
+
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getByEducation(educationInformationId));
+	}
+
+	@Override
+	public DataResult<JobSeeker> getByLanguageId(int foreignLanguageId) {
+
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getByLanguageId(foreignLanguageId));
+	}
+
+	@Override
+	public DataResult<JobSeeker> getBySkillId(int skillId) {
+
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getBySkillId(skillId));
+	}
+
+	@Override
+	public DataResult<JobSeeker> getBySocialMediaId(int socialMediaId) {
+
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getBySocialMediaId(socialMediaId));
+	}
+
+	@Override
+	public DataResult<JobSeeker> getByWorkExperienceId(int workExperienceId) {
+
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getByWorkExperience(workExperienceId));
 	}
 
 }

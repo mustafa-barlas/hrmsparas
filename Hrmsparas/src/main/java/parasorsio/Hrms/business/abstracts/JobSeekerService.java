@@ -2,8 +2,8 @@ package parasorsio.Hrms.business.abstracts;
 
 import java.util.List;
 
-import parasorsio.Hrms.core.utilities.Result.DataResult;
-import parasorsio.Hrms.core.utilities.Result.Result;
+import parasorsio.Hrms.core.utilities.result.DataResult;
+import parasorsio.Hrms.core.utilities.result.Result;
 import parasorsio.Hrms.entities.concretes.JobSeeker;
 
 public interface JobSeekerService {
@@ -15,6 +15,20 @@ public interface JobSeekerService {
 	Result delete(int id);
 
 	DataResult<JobSeeker> getById(int id);
+
+	DataResult<JobSeeker> getByCityId(int cityId);
+
+	DataResult<JobSeeker> getByCoverLetterId(int coverLetterId);
+
+	DataResult<JobSeeker> getByEducationId(int educationInformationId);
+
+	DataResult<JobSeeker> getByLanguageId(int foreignLanguageId);
+
+	DataResult<JobSeeker> getBySkillId(int skillId);
+
+	DataResult<JobSeeker> getBySocialMediaId(int socialMediaId);
+
+	DataResult<JobSeeker> getByWorkExperienceId(int workExperienceId);
 
 	DataResult<List<JobSeeker>> getByJobSeekerNameAndJobSeekerSurname(String jobSeekerName, String jobSeekerSurname);
 

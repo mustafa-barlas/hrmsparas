@@ -1,4 +1,4 @@
-package parasorsio.Hrms.core.utilities.Result;
+package parasorsio.Hrms.core.utilities.result;
 
 public class ErrorResult  extends Result {
 

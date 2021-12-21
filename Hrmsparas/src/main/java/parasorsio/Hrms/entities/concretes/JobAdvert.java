@@ -33,8 +33,8 @@ public class JobAdvert {
 	@Column(name = "job_advert_description")
 	private String jobAdvertDescription;
 
-	@Column(name = "job_advert_city")
-	private String jobAdvertCity;
+//	@Column(name = "job_advert_city")
+//	private String jobAdvertCity;
 
 	@Column(name = "job_advert_publish_date")
 	private LocalDate jobAdvertPublishDate;
@@ -46,16 +46,16 @@ public class JobAdvert {
 	private String jobAdvertNumberOfApplication;
 
 	@Column(name = "job_advert_max_salary")
-	private String jobAdvertMaxSalary;
+	private int jobAdvertMaxSalary;
 
 	@Column(name = "job_advert_min_salary")
-	private String jobAdvertMinSalary;
+	private int jobAdvertMinSalary;
 
 	@Column(name = "job_advert_open_position")
-	private String jobAdvertOpenPosition;
+	private int jobAdvertOpenPosition;
 
 	@Column(name = "job_advert_viewing")
-	private String jobAdvertViewing;
+	private int jobAdvertViewing;
 
 	@ManyToOne()
 	@JoinColumn(name = "employer_id")

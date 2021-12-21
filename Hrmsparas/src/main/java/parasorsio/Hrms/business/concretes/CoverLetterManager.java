@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import parasorsio.Hrms.business.abstracts.CoverLetterService;
-import parasorsio.Hrms.core.utilities.Result.DataResult;
-import parasorsio.Hrms.core.utilities.Result.Result;
-import parasorsio.Hrms.core.utilities.Result.SuccessDataResult;
-import parasorsio.Hrms.core.utilities.Result.SuccessResult;
+import parasorsio.Hrms.core.utilities.result.DataResult;
+import parasorsio.Hrms.core.utilities.result.Result;
+import parasorsio.Hrms.core.utilities.result.SuccessDataResult;
+import parasorsio.Hrms.core.utilities.result.SuccessResult;
 import parasorsio.Hrms.dataAccess.abstracts.CoverLetterDao;
 import parasorsio.Hrms.entities.concretes.CoverLetter;
 

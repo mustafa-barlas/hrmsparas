@@ -1,4 +1,4 @@
-package parasorsio.Hrms.core.utilities.adapters;
+package parasorsio.Hrms.core.adapters;
 
 public interface ValidationService {
 

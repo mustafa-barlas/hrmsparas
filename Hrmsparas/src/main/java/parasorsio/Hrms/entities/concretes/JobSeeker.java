@@ -43,6 +43,10 @@ public class JobSeeker {
 	private String jobSeekerPhoneNumber;
 
 	@ManyToOne()
+	@JoinColumn(name = "city_id")
+	private City city;
+
+	@ManyToOne()
 	@JoinColumn(name = "cover_letter_id")
 	private CoverLetter coverLetter;
 
