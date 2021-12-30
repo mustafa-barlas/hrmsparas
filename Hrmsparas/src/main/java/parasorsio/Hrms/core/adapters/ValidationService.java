@@ -2,6 +2,6 @@ package parasorsio.Hrms.core.adapters;
 
 public interface ValidationService {
 
-	boolean validateByMernis(String firstName, String lastName);
+//	boolean validateByMernis(String firstName, String lastName);
 	
 }
