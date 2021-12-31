@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +20,7 @@ import parasorsio.Hrms.entities.dtos.JobAdvertWithJobPositionDto;
 
 @RestController
 @RequestMapping("/api/job_adverts/")
+@CrossOrigin
 public class JobAdvertsController {
 
 	private JobAdvertService jobAdvertService;
