@@ -15,11 +15,11 @@ import parasorsio.Hrms.entities.concretes.JobSeeker;
 
 @RestController
 @RequestMapping("/api/job_seekers/")
-public class JobSeekerController {
+public class JobSeekersController {
 
 	private JobSeekerService JobSeekerService;
 
-	public JobSeekerController(JobSeekerService JobSeekerService) {
+	public JobSeekersController(JobSeekerService JobSeekerService) {
 		super();
 		this.JobSeekerService = JobSeekerService;
 	}

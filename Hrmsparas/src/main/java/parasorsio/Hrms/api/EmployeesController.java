@@ -17,12 +17,12 @@ import parasorsio.Hrms.entities.concretes.Employee;
 
 @RestController
 @RequestMapping("/api/employees/")
-public class EmployeeController {
+public class EmployeesController {
 
 	private EmployeeService employeeService;
 
 	@Autowired
-	public EmployeeController(EmployeeService employeeService) {
+	public EmployeesController(EmployeeService employeeService) {
 		super();
 		this.employeeService = employeeService;
 	}

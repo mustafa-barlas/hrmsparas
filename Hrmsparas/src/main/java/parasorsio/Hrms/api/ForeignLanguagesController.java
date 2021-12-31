@@ -17,12 +17,12 @@ import parasorsio.Hrms.entities.concretes.ForeignLanguage;
 
 @RestController
 @RequestMapping("/api/foreign_languages/")
-public class ForeignLanguageController {
+public class ForeignLanguagesController {
 
 	private ForeignLanguageService foreignLanguageService;
 
 	@Autowired
-	public ForeignLanguageController(ForeignLanguageService foreignLanguageService) {
+	public ForeignLanguagesController(ForeignLanguageService foreignLanguageService) {
 		super();
 		this.foreignLanguageService = foreignLanguageService;
 	}

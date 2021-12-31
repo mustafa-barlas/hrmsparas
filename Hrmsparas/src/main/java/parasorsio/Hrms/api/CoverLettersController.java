@@ -16,12 +16,12 @@ import parasorsio.Hrms.entities.concretes.CoverLetter;
 
 @RestController
 @RequestMapping("/api/cover_letters/")
-public class CoverLetterController {
+public class CoverLettersController {
 
 	private CoverLetterService coverLetterService;
 
 	@Autowired
-	public CoverLetterController(CoverLetterService coverLetterService) {
+	public CoverLettersController(CoverLetterService coverLetterService) {
 		super();
 		this.coverLetterService = coverLetterService;
 	}

@@ -17,12 +17,12 @@ import parasorsio.Hrms.entities.concretes.City;
 
 @RequestMapping("/api/cities/")
 @RestController
-public class CityController {
+public class CitiesController {
 
 	private CityService cityService;
 
 	@Autowired
-	public CityController(CityService cityService) {
+	public CitiesController(CityService cityService) {
 		super();
 		this.cityService = cityService;
 	}

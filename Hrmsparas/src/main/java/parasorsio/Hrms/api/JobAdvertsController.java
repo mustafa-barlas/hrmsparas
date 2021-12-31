@@ -20,12 +20,12 @@ import parasorsio.Hrms.entities.dtos.JobAdvertWithJobPositionDto;
 
 @RestController
 @RequestMapping("/api/job_adverts/")
-public class JobAdvertController {
+public class JobAdvertsController {
 
 	private JobAdvertService jobAdvertService;
 
 	@Autowired
-	public JobAdvertController(JobAdvertService jobAdvertService) {
+	public JobAdvertsController(JobAdvertService jobAdvertService) { 
 		super();
 		this.jobAdvertService = jobAdvertService;
 	}

@@ -15,12 +15,12 @@ import parasorsio.Hrms.entities.concretes.WorkExperience;
 
 @RestController
 @RequestMapping("/api/work_experiences/")
-public class WorkExperienceController {
+public class WorkExperiencesController {
 
 	private WorkExperienceService workExperienceService;
 
 	@Autowired
-	public WorkExperienceController(WorkExperienceService workExperienceService) {
+	public WorkExperiencesController(WorkExperienceService workExperienceService) {
 		super();
 		this.workExperienceService = workExperienceService;
 	}

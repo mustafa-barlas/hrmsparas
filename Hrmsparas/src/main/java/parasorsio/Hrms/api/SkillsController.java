@@ -15,12 +15,12 @@ import parasorsio.Hrms.entities.concretes.Skill;
 
 @RestController
 @RequestMapping("/api/skills/")
-public class SkillController {
+public class SkillsController {
 
 	private SkillService skillService;
 
 	@Autowired
-	public SkillController(SkillService skillService) {
+	public SkillsController(SkillService skillService) {
 		super();
 		this.skillService = skillService;
 	}

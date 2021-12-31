@@ -16,12 +16,12 @@ import parasorsio.Hrms.entities.concretes.EducationInformation;
 
 @RequestMapping("/ap/education_informations/")
 @RestController
-public class EducationInformationController {
+public class EducationInformationsController {
 
 	private EducationInformationService educationInformationService;
 
 	@Autowired
-	public EducationInformationController(EducationInformationService educationInformationService) {
+	public EducationInformationsController(EducationInformationService educationInformationService) {
 		super();
 		this.educationInformationService = educationInformationService;
 	}

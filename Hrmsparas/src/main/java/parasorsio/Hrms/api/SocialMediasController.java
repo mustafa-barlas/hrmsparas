@@ -15,12 +15,12 @@ import parasorsio.Hrms.entities.concretes.SocialMedia;
 
 @RestController
 @RequestMapping("/api/social_media/")
-public class SocialMediaController {
+public class SocialMediasController {
 
 	private SocialMediaService socialMediaService;
 
 	@Autowired
-	public SocialMediaController(SocialMediaService socialMediaService) {
+	public SocialMediasController(SocialMediaService socialMediaService) {
 		super();
 		this.socialMediaService = socialMediaService;
 	}
